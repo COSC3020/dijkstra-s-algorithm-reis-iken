@@ -1,3 +1,6 @@
+let fs = require('fs');
+let jsc = require('jsverify');
+eval(fs.readFileSync('code.js')+'');
 const testDijkstra = jsc.forall(jsc.dict(jsc.dict(jsc.integer(1, 1000))), jsc.string, function(graph, sourceNode) {
     const result = dijkstra(graph, sourceNode);
     function checkDistances(distances) {
@@ -20,3 +23,5 @@ const testDijkstra = jsc.forall(jsc.dict(jsc.dict(jsc.integer(1, 1000))), jsc.st
     }
     return checkDistances(result);
 });
+
+jsc.assert(testDijkstra);
