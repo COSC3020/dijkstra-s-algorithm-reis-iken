@@ -14,7 +14,7 @@ const testDijkstra = jsc.forall(jsc.dict(jsc.dict(jsc.integer(1, 1000))), jsc.st
                 visitedNodes.add(node);
             }
             for (const neighbor in graph[node]) {
-                if (distances[neighbor] > distances[node] + graph[node][neighbor]) {
+                if (distances[node] !== Infinity && distances[neighbor] > distances[node] + graph[node][neighbor]) {
                     return false;
                 }
             }
