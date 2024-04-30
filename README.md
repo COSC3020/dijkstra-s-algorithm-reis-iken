@@ -24,3 +24,7 @@ inefficient.
 
 What is the big $\Theta$ complexity of your implementation? Add your
 answer, including your reasoning, to this markdown file.
+
+**MY ANSWER:**
+
+Since we iterate over each vertex, checking all vertexes to find the minimum node, we know that this is quadratic time in terms of runtime complexity. The runtime complexity of my implementation here is $\Theta(V^2)$
