@@ -15,11 +15,11 @@ function dijkstra(graph, sourceNode) {
             break;
         }
         unvisited.delete(minNode);
-        for (let neighbor in graph[minNode]) {
+        for (let neighbor of Object.keys(graph[minNode])) {
             if (unvisited.has(neighbor)) {
-                let distance = distanceResult[minNode] + graph[minNode][neighbor];
-                if (distance < distanceResult[neighbor]) {
-                    distanceResult[neighbor] = distance;
+            let distance = distanceResult[minNode] + graph[minNode][neighbor];
+            if (distance < distanceResult[neighbor]) {
+            distanceResult[neighbor] = distance;
                 }
             }
         }
