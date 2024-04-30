@@ -2,9 +2,8 @@ function dijkstra(graph, sourceNode) {
     let distanceResult = {};
     let unvisited = new Set(Object.keys(graph));
     for (let node in graph) {
-        distanceResult[node] = Infinity;
+        distanceResult[node] = node === sourceNode ? 0 : Infinity;
     }
-    distanceResult[sourceNode] = 0;
     while (unvisited.size > 0) {
         let minNode = null;
         for (let node of unvisited) {
@@ -17,9 +16,11 @@ function dijkstra(graph, sourceNode) {
         }
         unvisited.delete(minNode);
         for (let neighbor in graph[minNode]) {
-            let distance = distanceResult[minNode] + graph[minNode][neighbor];
-            if (distance < distanceResult[neighbor]) {
-                distanceResult[neighbor] = distance;
+            if (unvisited.has(neighbor)) {
+                let distance = distanceResult[minNode] + graph[minNode][neighbor];
+                if (distance < distanceResult[neighbor]) {
+                    distanceResult[neighbor] = distance;
+                }
             }
         }
     }
