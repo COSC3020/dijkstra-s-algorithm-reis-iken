@@ -13,8 +13,8 @@ function dijkstra(graph, sourceNode) {
             }
         }
         if (minNode === null) {
-            break; }
-        visited[minNode] = true;
+            break;
+        }
         unvisited.delete(minNode);
         for (let neighbor in graph[minNode]) {
             let distance = distanceResult[minNode] + graph[minNode][neighbor];
