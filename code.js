@@ -24,3 +24,4 @@ function dijkstra(graph, sourceNode) {
         }
     }
     return distanceResult;
+}
