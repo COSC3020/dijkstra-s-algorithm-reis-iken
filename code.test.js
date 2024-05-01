@@ -5,10 +5,10 @@ eval(fs.readFileSync('code.js')+'');
 function convertToGraph(adjacencyMatrix) {
     const graph = {};
     for (let i = 0; i < adjacencyMatrix.length; i++) {
-        graph[i] = {};
+        graph[i.toString()] = {};
         for (let j = 0; j < adjacencyMatrix[i].length; j++) {
             if (adjacencyMatrix[i][j] !== 0) {
-                graph[i][j] = adjacencyMatrix[i][j];
+                graph[i.toString()][j.toString()] = adjacencyMatrix[i][j];
             }
         }
     }
