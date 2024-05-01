@@ -16,15 +16,10 @@ function dijkstra(graph, sourceNode) {
             break;
         }
         unvisited.delete(minNode);
-        for (const neighbor of Object.keys(graph[minNode])) {
-            if (unvisited.has(neighbor)) {
-                const distance = distanceResult[minNode] + graph[minNode][neighbor];
-                if (distance < distanceResult[neighbor]) {
-                    distanceResult[neighbor] = distance;
-                }
-                if (distance < distanceResult[neighbor]) {
-                    distanceResult[neighbor] = distance;
-                }
+        for (const neighbor in graph[minNode]) {
+            const distance = distanceResult[minNode] + graph[minNode][neighbor];
+            if (distance < distanceResult[neighbor]) {
+                distanceResult[neighbor] = distance;
             }
         }
     }
